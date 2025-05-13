@@ -30,3 +30,38 @@ mitmweb -s crawling_data_hook.py --set upstream_proxy=http://127.0.0.1:7897 --se
 ## 4. 启动应用并抓取请求
 
 访问 [http://127.0.0.1:10808](http://127.0.0.1:10808) 启动应用，可以看到请求被抓取到。在 [response](file://C:\work\crawling_app_tools\crawling_data_hook.py#L86-L110) 中可以运行自定义脚本，进行逻辑处理。
+
+# 推荐使用 `uv` 包管理工具
+
+## 创建虚拟环境并安装依赖
+```
+uv venv                          
+source venv/bin/activate      # Linux/macOS
+# 或 venv\Scripts\activate    # Windows CMD
+# 或 venv\Scripts\Activate.ps1 # Windows PowerShell
+# 安装完全一致的依赖版本
+uv pip install -r requirements.lock  
+```
+
+## 如有更新，重新导出
+```
+uv pip compile requirements.txt --output requirements.lock
+```
+
+## 退出虚拟环境
+```
+deactivate
+```
+
+## 传统pip
+## 创建虚拟环境并安装依赖
+```
+python -m venv venv
+source venv/bin/activate      # Linux/macOS
+# 或 venv\Scripts\activate    # Windows CMD
+# 或 venv\Scripts\Activate.ps1 # Windows PowerShell
+pip install -r requirements.txt
+```
+
+## python版本
+> 测试时使用的python版本为3.13.1，请使用python3.10以上

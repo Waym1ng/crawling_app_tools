@@ -1,0 +1,12 @@
+/outputs/
+/downloads/
+/downloads*/
+__pycache__
+cache
+venv/
+logs
+.idea
+*.pyc
+.assets
+*.log
+urls.txt
